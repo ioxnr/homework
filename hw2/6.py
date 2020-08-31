@@ -1,11 +1,10 @@
 goods = []
+i = 0
 while input('Хотите добавить новый товар? да/нет ') == 'да':
-    number = int(input('Введите номер товара: '))
-    products = {}
-    while input('Хотите ввести параметры товара? да/нет ') == 'да':
-        product_key = input('Введите характеристику товара: ')
-        product_value = input('Введите значение характеристики: ')
-        products[product_key] = product_value
+    i += 1
+    number = i
+    products = {'название': input('Введите название товара: '), 'цена': input('Введите цену товара: '),
+                'количество': input('Введите количество товара: '), 'ед': input('Введите единицу измерения товара: ')}
     goods.append(tuple([number, products]))
 print(goods)
 analitics = {}
@@ -15,4 +14,5 @@ for good in goods:
             analitics[product_key].append(product_value)
         else:
             analitics[product_key] = [product_value]
+
 print(analitics)
