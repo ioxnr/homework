@@ -13,7 +13,7 @@ def my_sum(*args):
             global n
             n = 0
             return 'Введен спецсимвол\n' f'Cумма чисел равна {total}'
-    return total
+    return f'Cумма чисел равна {total}'
 
 
 while n != 0:
