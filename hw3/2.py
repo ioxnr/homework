@@ -1,5 +1,5 @@
-def data(name, surname, date_of_birth, city, email, phone_number):
-    return ' '.join([name, surname, date_of_birth, city, email, phone_number])
+def data(name=None, surname=None, date_of_birth=None, city=None, email=None, phone_number=None):
+    return f'{name}, {surname}, {date_of_birth}, {city}, {email}, {phone_number}'
 
 
 print(data(name=input('Введите свое имя: '),
