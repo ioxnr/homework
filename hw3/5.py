@@ -7,12 +7,12 @@ def my_sum(*args):
     numbers = numbers.split(' ')
     global total
     for i in numbers:
-        if i.startswith('\\'):
+        if i.isdigit():
+            total = total + int(i)
+        else:
             global n
             n = 0
             return 'Введен спецсимвол\n' f'Cумма чисел равна {total}'
-        else:
-            total = total + int(i)
     return total
 
 
