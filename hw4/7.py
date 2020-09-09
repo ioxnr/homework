@@ -4,8 +4,8 @@ def fact(n):
     if n <= 0:
         yield result
 
-    for i in range(1, n + 1):
-        result *= i
+    for x in range(1, n + 1):
+        result *= x
         yield result
 
 

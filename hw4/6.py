@@ -9,8 +9,8 @@ for i in count(a):
 
 b = [3, 4, 5]
 count = 0
-for i in cycle(b):
+for j in cycle(b):
     if count > 50:
         break
-    print(i)
+    print(j)
     count += 1
