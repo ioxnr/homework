@@ -7,4 +7,4 @@ def salary(output, rate, premium):
 
 file, a, b, c = sys.argv
 
-print(salary(int(a), int(b), int(c)))
+print(salary(float(a), float(b), float(c)))
