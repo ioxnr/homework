@@ -1,17 +1,15 @@
-from itertools import count
-from math import factorial
+def fact(n):
+    result = 1
+
+    if n <= 0:
+        yield result
+
+    for i in range(1, n + 1):
+        result *= i
+        yield result
 
 
-def fibo_gen():
-    for el in count(1):
-        yield factorial(el)
+n = int(input('Введите любое число: '))
 
-
-gen = fibo_gen()
-x = 0
-for i in gen:
-    if x < 15:
-        print(i)
-        x += 1
-    else:
-        break
+for i in fact(n):
+    print(i)
