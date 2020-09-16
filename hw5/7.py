@@ -18,5 +18,5 @@ with open('companies.txt') as companies:
     total.append(av_point)
 print(total)
 
-with open('companies_total.txt', 'w') as companies_total:
+with open('companies_total.json', 'w') as companies_total:
     json.dump(total, companies_total)
