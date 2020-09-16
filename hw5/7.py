@@ -8,12 +8,12 @@ with open('companies.txt') as companies:
     total = []
     for line in companies.readlines():
         line = line.split()
-        profit = int(line[2]) - int(line[3])
+        profit = float(line[2]) - float(line[3])
         firms[line[0]] = profit
         if profit > 0:
             i += 1
             profits.append(profit)
-    av_point['av_profit'] = sum(profits) / i
+    av_point['av_profit'] = round(sum(profits) / i, 2)
     total.append(firms)
     total.append(av_point)
 print(total)
