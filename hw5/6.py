@@ -9,5 +9,5 @@ with open('lessons.txt') as lessons:
             i = i.replace('(лаб)', '')
             if i.isdigit():
                 total += int(i)
-        schedule[line[0]] = total
+        schedule[line[0].rstrip(':')] = total
 print(schedule)
