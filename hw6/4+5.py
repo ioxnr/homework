@@ -4,69 +4,71 @@ class Car:
     name: str
     is_police: bool
 
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name):
         self.speed = speed
         self.color = color
         self.name = name
-        self.is_police = is_police
+        self.is_police = False
 
     def go(self):
-        return 'The car is going'
+        print(f'The {self.name} is going')
 
     def stop(self):
-        return 'The car has stopped'
+        print(f'The {self.name} has stopped')
 
     def turn(self, direction):
-        return f'The car has turned {direction}'
+        print(f'The {self.name} has turned {direction}')
 
     def show_speed(self):
-        return f'Current speed is - {self.speed}'
+        print(f'{self.name} current speed is - {self.speed}')
 
 
 class TownCar(Car):
 
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
 
     def show_speed(self):
-        print(f'Current speed is - {self.speed}')
+        super().show_speed()
         if self.speed > 60:
-            return 'Speed exceeded'
+            print('Speed exceeded')
 
 
 class SportCar(Car):
 
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
 
 
 class WorkCar(Car):
 
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
 
     def show_speed(self):
-        print(f'Current speed is - {self.speed}')
+        super().show_speed()
         if self.speed > 40:
-            return 'Speed exceeded'
+            print('Speed exceeded')
 
 
 class PoliceCar(Car):
 
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
+        self.is_police = True
 
 
-audi = Car(70, 'white', 'Audi', False)
-bmw = TownCar(120, 'black', 'BMW', False)
-ford = SportCar(130, 'yellow', 'Ford', False)
-nissan = WorkCar(80, 'red', 'Nissan', False)
-lada = PoliceCar(60, 'grey', 'Lada', True)
+audi = Car(70, 'white', 'Audi')
+bmw = TownCar(120, 'black', 'BMW')
+ford = SportCar(130, 'yellow', 'Ford')
+nissan = WorkCar(80, 'red', 'Nissan')
+lada = PoliceCar(60, 'grey', 'Lada')
 
 print(f'The color of {audi.name} - {audi.color}')
 print(f'{ford.name} speed is {ford.speed}')
-print(nissan.show_speed())
-print(bmw.show_speed())
-print(lada.go())
-print(ford.stop())
-print(bmw.turn('left'))
+print(f'Is {lada.name} a police car? - {lada.is_police}')
+nissan.show_speed()
+bmw.show_speed()
+lada.go()
+ford.stop()
+bmw.turn('left')
