@@ -10,8 +10,8 @@ class Cell:
         return Cell(self.amount + other.amount)
 
     def __sub__(self, other):
-        if max(self.amount, other.amount) - min(self.amount, other.amount) > 0:
-            return Cell(abs(self.amount - other.amount))
+        if self.amount - other.amount > 0:
+            return Cell(self.amount - other.amount)
         else:
             return 'Разность количества ячеек двух клеток должна быть больше нуля'
 
@@ -19,18 +19,18 @@ class Cell:
         return Cell(self.amount * other.amount)
 
     def __truediv__(self, other):
-        return Cell(self.amount / other.amount)
+        return Cell(round(self.amount / other.amount))
 
     def make_order(self, amount_in_row):
         row = ''
         for i in range(int(self.amount / amount_in_row)):
-            row += '*' * amount_in_row + '\\n'
+            row += '*' * amount_in_row + '\n'
         row += '*' * (self.amount % amount_in_row)
         return row
 
 
-c = Cell(20)
-b = Cell(56)
+c = Cell(56)
+b = Cell(20)
 print(c + b)
 print(c - b)
 print(c * b)
