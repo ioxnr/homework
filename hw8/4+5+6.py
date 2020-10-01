@@ -1,16 +1,15 @@
 class Stock:
     def __init__(self):
-        self.equipment = {}
+        self.equipment = {'printers': 0, 'scanners': 0, 'copiers': 0}
 
-    # @classmethod
-    # def acceptance(cls, article):
-    # if isinstance(article, Printer):
-    # equipment['printers'].append(article)
-    # elif isinstance(article, Scanner):
-    # self.equipment['scanners'].append(article)
-    # elif isinstance(article, Copier):
-    # self.equipment['copiers'].append(article)
-    # return f'{article} был принят на склад'
+    def acceptance(self, article):
+        if isinstance(article, Printer):
+            self.equipment['printers'] += 1
+        elif isinstance(article, Scanner):
+            self.equipment['scanners'] += 1
+        elif isinstance(article, Copier):
+            self.equipment['copiers'] += 1
+        return 'Товар был принят на склад'
 
 
 class OfficeEquipment:
@@ -44,3 +43,6 @@ class Copier(OfficeEquipment):
 unit_1 = Printer('hp', 5, 2000, 10)
 unit_2 = Scanner('Canon', 3, 1200, 100)
 unit_3 = Copier('Xerox', 2, 1500, 150)
+
+stock = Stock()
+print(stock.acceptance(unit_1))

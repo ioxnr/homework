@@ -3,20 +3,29 @@ class ComplexNumber:
     def __init__(self, a, b):
         self.a = a
         self.b = b
-        self.z = 'a + b * i'
 
     def __add__(self, other):
-        return f'z = {self.a + other.a} + {self.b + other.b} * i'
+        return ComplexNumber(self.a + other.a, self.b + other.b)
 
     def __mul__(self, other):
-        return f'z = {self.a * other.a - (self.b * other.b)} + {self.b * other.a} * i'
+        r1 = self.a * other.a
+        r2 = (self.b * other.b) * -1
+
+        i1 = self.a * other.b
+        i2 = self.b * other.a
+
+        real = r1 + r2
+        ind = i1 + i2
+        return ComplexNumber(real, ind)
 
     def __str__(self):
-        return f'z = {self.a} + {self.b} * i'
+        if self.b > 0:
+            self.b = '+' + str(self.b)
+        return f'({self.a} {self.b}i)'
 
 
-z_1 = ComplexNumber(1, -2)
-z_2 = ComplexNumber(3, 4)
-print(z_1)
-print(z_1 + z_2)
-print(z_1 * z_2)
+z1 = ComplexNumber(4, -3)
+z2 = ComplexNumber(5, 7)
+print(z1)
+print(z1 + z2)
+print(z1 * z2)

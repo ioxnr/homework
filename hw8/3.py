@@ -1,16 +1,25 @@
-class OnlyNumbers(Exception):
-    def __init__(self, *args):
-        self.numbers = []
+class OnlyNumbersException(Exception):
 
-    def my_input(self):
-        while True:
-            try:
-                values = input('Введите число: ')
-                self.numbers.append(int(values))
-                print(self.numbers)
-            except:
-                print('Недопустимое значение, введите число')
+    def __str__(self):
+        return 'Недопустимое значение, введите число'
 
 
-numb = OnlyNumbers(1)
-print(numb.my_input())
+numbers = []
+
+
+def append_numbers(numbers):
+    value = input('Введите число: ')
+    try:
+        numbers.append(int(value))
+    except ValueError:
+        raise OnlyNumbersException
+
+
+while True:
+    try:
+        append_numbers(numbers)
+    except OnlyNumbersException as exception:
+        print(exception)
+    except KeyboardInterrupt:
+        print(f'\n{numbers}')
+        break
